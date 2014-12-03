@@ -31,7 +31,16 @@ app.get('/new', inventory.new);
 
 app.route('/:id')
     // view a single item
-    .get(inventory.show);
+    .get(inventory.show)
+    // update a single item
+    .post(inventory.update)
+    // delete a single item
+    .delete(inventory.delete);
+    
+app.route('/:id/edit')
+    // view a single item
+    .get(inventory.edit);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
